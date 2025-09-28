@@ -1,1 +1,27 @@
 Lagrange’s Four-Square Theorem
+class Solution {
+public:
+    vector<int> singleNumber(vector<int>& nums) {
+        //  here we take the data type ' long long ' only because if nums is ' INT_MIN 'the XOR GO out of bound   
+        long long XOR_ALL =0;
+        // find the xor of all the numbers
+        for(auto it:nums){
+            XOR_ALL = XOR_ALL ^ it;
+        }
+        // find the right most set of "XOR_ALL"
+        long long rightmostbit = (XOR_ALL & (XOR_ALL-1))^XOR_ALL; 
+
+        int b1 = 0 , b2=0; // bucket  1 , 2  intitally 0 
+
+        for(auto it:nums){
+            if(it & rightmostbit){ // bucket b1 contain 1 in place of the rightmostbit 
+                b1 = b1 ^ it;
+            }
+            else{  // bucket b1 contain 1 in place of the rightmostbit 
+                b2 = b2 ^ it;
+            }
+        }
+
+        return {b1,b2};
+    }
+};
