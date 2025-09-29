@@ -1,5 +1,6 @@
-Lagrange’s Four-Square Theorem
-class Solution {
+1.Lagrange’s Four-Square Theorem
+2.permutations and combinations
+3.class Solution {
 public:
     vector<int> singleNumber(vector<int>& nums) {
         //  here we take the data type ' long long ' only because if nums is ' INT_MIN 'the XOR GO out of bound   
@@ -25,3 +26,4 @@ public:
         return {b1,b2};
     }
 };
+
